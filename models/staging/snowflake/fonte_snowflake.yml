@@ -1,0 +1,174 @@
+sources:
+  - name: snowflake
+    description: Fonte de dados dos marts da Adventure_Works.
+    schema: raw_adventure_works
+    database: fea24_11
+    tables:
+      - name: salesorderheader
+        description: "Tabela de pedidos de venda."
+        columns:
+          - name: salesorderid
+            description: "Chave primária da tabela de pedidos."
+            tests:
+              - unique
+              - not_null
+          - name: customerid
+            description: "Chave estrangeira para a tabela de clientes."
+            tests:
+              - not_null
+          - name: orderdate
+            description: "Data do pedido."
+          - name: totaldue
+            description: "Valor total do pedido."
+
+      - name: salesorderdetail
+        description: "Detalhes dos itens vendidos em cada pedido."
+        columns:
+          - name: salesorderdetailid
+            description: "Chave primária da tabela de detalhes do pedido."
+            tests:
+              - unique
+              - not_null
+          - name: salesorderid
+            description: "Chave estrangeira para a tabela salesorderheader."
+            tests:
+              - not_null
+          - name: productid
+            description: "Chave estrangeira para a tabela de produtos."
+          - name: orderqty
+            description: "Quantidade comprada."
+          - name: unitprice
+            description: "Preço unitário do produto."
+          - name: unitpricediscount
+            description: "Desconto aplicado ao item."
+
+      - name: customer
+        description: "Informações sobre os clientes da AdventureWorks."
+        columns:
+          - name: customerid
+            description: "Chave primária da tabela de clientes."
+            tests:
+              - unique
+              - not_null
+          - name: personid
+            description: "Chave estrangeira para a tabela de pessoas associadas aos clientes."
+          - name: territoryid
+            description: "Chave estrangeira para a tabela salesterritory."
+
+      - name: person
+        description: "Detalhes das pessoas associadas aos clientes."
+        columns:
+          - name: businessentityid
+            description: "Chave primária."
+            tests:
+              - unique
+              - not_null
+          - name: firstname
+            description: "Nome do cliente."
+          - name: lastname
+            description: "Sobrenome do cliente."
+
+      - name: product
+        description: "Catálogo de produtos da Adventure_Works."
+        columns:
+          - name: productid
+            description: "Chave primária do produto."
+            tests:
+              - unique
+              - not_null
+          - name: name
+            description: "Nome do produto."
+          - name: productsubcategoryid
+            description: "Chave estrangeira para a tabela product_subcategory."
+
+      - name: productsubcategory
+        description: "Subcategorias de produtos."
+        columns:
+          - name: productsubcategoryid
+            description: "Chave primária da subcategoria."
+            tests:
+              - unique
+              - not_null
+          - name: productcategoryid
+            description: "Chave estrangeira para a tabela product_category."
+
+      - name: productcategory
+        description: "Categorias de produtos."
+        columns:
+          - name: productcategoryid
+            description: "Chave primária da categoria do produto."
+            tests:
+              - unique
+              - not_null
+          - name: name
+            description: "Nome da categoria."
+
+      - name: address
+        description: "Endereços associados a clientes e pedidos."
+        columns:
+          - name: addressid
+            description: "Chave primária do endereço."
+            tests:
+              - unique
+              - not_null
+          - name: city
+            description: "Cidade do endereço."
+          - name: stateprovinceid
+            description: "Chave estrangeira para state_province."
+
+      - name: stateprovince
+        description: "Estados e províncias associados a endereços."
+        columns:
+          - name: stateprovinceid
+            description: "Chave primária do estado/província."
+            tests:
+              - unique
+              - not_null
+          - name: countryregioncode
+            description: "Código do país."
+
+      - name: countryregion
+        description: "Países associados aos endereços."
+        columns:
+          - name: countryregioncode
+            description: "Código do país."
+            tests:
+              - unique
+              - not_null
+          - name: name
+            description: "Nome do país."
+
+      - name: salesreason
+        description: "Motivos de venda registrados nas transações."
+        columns:
+          - name: salesreasonid
+            description: "Chave primária do motivo de venda."
+            tests:
+              - unique
+              - not_null
+          - name: name
+            description: "Nome do motivo da venda."
+
+      - name: creditcard
+        description: "Cartões de crédito usados nas compras."
+        columns:
+          - name: creditcardid
+            description: "Chave primária do cartão."
+            tests:
+              - unique
+              - not_null
+          - name: cardtype
+            description: "Tipo do cartão de crédito."
+
+      - name: salesterritory
+        description: "Regiões de vendas associadas aos pedidos."
+        columns:
+          - name: territoryid
+            description: "Chave primária da região de vendas."
+            tests:
+              - unique
+              - not_null
+          - name: name
+            description: "Nome da região."
+          - name: countryregioncode
+            description: "Código do país da região."
