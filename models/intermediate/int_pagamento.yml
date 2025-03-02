@@ -1,15 +1,15 @@
 version: 2
 
 models:
-  - name: dim_pagamento
-    description: "Dimensão contendo os métodos de pagamento usados nos pedidos."
+  - name: int_pagamento
+    description: "Tabela intermediária que une pedidos aos métodos de pagamento."
     columns:
       - name: id_pedido
-        description: "Chave estrangeira para a tabela fato de vendas."
+        description: "Chave estrangeira para a tabela de pedidos."
         tests:
           - not_null
           - relationships:
-              to: ref('fact_vendas')
+              to: ref('int_pedidos_vendas')
               field: id_pedido
 
       - name: tipo_cartao

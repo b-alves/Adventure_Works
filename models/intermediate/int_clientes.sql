@@ -1,18 +1,15 @@
-WITH cliente AS (
+WITH customer AS (
     SELECT * FROM {{ ref('stg_snowflake__customer') }}
 ),
-
-pessoa AS (
+person AS (
     SELECT * FROM {{ ref('stg_snowflake__person') }}
 ),
-
 joined AS (
     SELECT 
-        cliente.customerid AS id_cliente,
-        COALESCE(pessoa.firstname || ' ' || pessoa.lastname, 'Cliente Desconhecido') AS nome_cliente,
-        cliente.territoryid AS id_territorio
-    FROM cliente
-    LEFT JOIN pessoa ON cliente.personid = pessoa.businessentityid
+        customer.customerid AS id_cliente,
+        COALESCE(person.firstname || ' ' || person.lastname, 'Cliente Desconhecido') AS nome_cliente
+    FROM customer
+    LEFT JOIN person ON customer.personid = person.businessentityid
 )
 
 SELECT * FROM joined

@@ -1,8 +1,8 @@
 version: 2
 
 models:
-  - name: dim_pagamento
-    description: "Dimensão contendo os métodos de pagamento usados nos pedidos."
+  - name: dim_motivo_venda
+    description: "Dimensão contendo os motivos de venda associados aos pedidos."
     columns:
       - name: id_pedido
         description: "Chave estrangeira para a tabela fato de vendas."
@@ -12,5 +12,5 @@ models:
               to: ref('fact_vendas')
               field: id_pedido
 
-      - name: tipo_cartao
-        description: "Tipo de cartão de crédito utilizado na compra."
+      - name: motivo_venda
+        description: "Motivo pelo qual o cliente realizou a compra."

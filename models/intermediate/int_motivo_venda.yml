@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: int_motivo_venda
+    description: "Tabela intermediária que relaciona pedidos aos motivos de venda."
+    columns:
+      - name: id_pedido
+        description: "Chave estrangeira para a tabela de pedidos."
+        tests:
+          - not_null
+          - relationships:
+              to: ref('int_pedidos_vendas')
+              field: id_pedido
+
+      - name: motivo_venda
+        description: "Motivo pelo qual o cliente realizou a compra."

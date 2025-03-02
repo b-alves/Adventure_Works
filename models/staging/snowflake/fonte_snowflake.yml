@@ -1,6 +1,8 @@
+version: 2
+
 sources:
   - name: snowflake
-    description: Fonte de dados dos marts da Adventure_Works.
+    description: Fonte de dados dos marts da Adventure Works.
     schema: raw_adventure_works
     database: fea24_11
     tables:
@@ -20,6 +22,10 @@ sources:
             description: "Data do pedido."
           - name: totaldue
             description: "Valor total do pedido."
+          - name: creditcardid
+            description: "Chave estrangeira para a tabela de cartões de crédito."
+          - name: salespersonid
+            description: "Chave estrangeira para a tabela de vendedores."
 
       - name: salesorderdetail
         description: "Detalhes dos itens vendidos em cada pedido."
@@ -35,6 +41,8 @@ sources:
               - not_null
           - name: productid
             description: "Chave estrangeira para a tabela de produtos."
+            tests:
+              - not_null
           - name: orderqty
             description: "Quantidade comprada."
           - name: unitprice
@@ -43,7 +51,7 @@ sources:
             description: "Desconto aplicado ao item."
 
       - name: customer
-        description: "Informações sobre os clientes da AdventureWorks."
+        description: "Tabela de clientes."
         columns:
           - name: customerid
             description: "Chave primária da tabela de clientes."
@@ -51,52 +59,52 @@ sources:
               - unique
               - not_null
           - name: personid
-            description: "Chave estrangeira para a tabela de pessoas associadas aos clientes."
+            description: "Chave estrangeira para a tabela de pessoas."
           - name: territoryid
-            description: "Chave estrangeira para a tabela salesterritory."
+            description: "Chave estrangeira para a tabela de territórios de vendas."
 
       - name: person
-        description: "Detalhes das pessoas associadas aos clientes."
+        description: "Tabela de pessoas."
         columns:
           - name: businessentityid
-            description: "Chave primária."
+            description: "Chave primária da tabela de pessoas."
             tests:
               - unique
               - not_null
           - name: firstname
-            description: "Nome do cliente."
+            description: "Primeiro nome."
           - name: lastname
-            description: "Sobrenome do cliente."
+            description: "Último nome."
 
       - name: product
-        description: "Catálogo de produtos da Adventure_Works."
+        description: "Tabela de produtos."
         columns:
           - name: productid
-            description: "Chave primária do produto."
+            description: "Chave primária da tabela de produtos."
             tests:
               - unique
               - not_null
           - name: name
             description: "Nome do produto."
           - name: productsubcategoryid
-            description: "Chave estrangeira para a tabela product_subcategory."
+            description: "Chave estrangeira para a tabela de subcategorias."
 
       - name: productsubcategory
-        description: "Subcategorias de produtos."
+        description: "Tabela de subcategorias de produtos."
         columns:
           - name: productsubcategoryid
-            description: "Chave primária da subcategoria."
+            description: "Chave primária da tabela de subcategorias."
             tests:
               - unique
               - not_null
           - name: productcategoryid
-            description: "Chave estrangeira para a tabela product_category."
+            description: "Chave estrangeira para a tabela de categorias."
 
       - name: productcategory
-        description: "Categorias de produtos."
+        description: "Tabela de categorias de produtos."
         columns:
           - name: productcategoryid
-            description: "Chave primária da categoria do produto."
+            description: "Chave primária da categoria."
             tests:
               - unique
               - not_null
@@ -114,7 +122,7 @@ sources:
           - name: city
             description: "Cidade do endereço."
           - name: stateprovinceid
-            description: "Chave estrangeira para state_province."
+            description: "Chave estrangeira para stateprovince."
 
       - name: stateprovince
         description: "Estados e províncias associados a endereços."
@@ -186,3 +194,20 @@ sources:
             description: "Nome da região."
           - name: countryregioncode
             description: "Código do país da região."
+
+      - name: salesperson
+        description: "Tabela de vendedores, incluindo metas e comissões."
+        columns:
+          - name: businessentityid
+            description: "Chave primária da tabela de vendedores."
+            tests:
+              - unique
+              - not_null
+          - name: territoryid
+            description: "Chave estrangeira para a tabela de territórios de vendas."
+          - name: salesquota
+            description: "Meta de vendas do vendedor."
+          - name: bonus
+            description: "Bônus recebido pelo vendedor."
+          - name: commissionpct
+            description: "Percentual de comissão do vendedor."

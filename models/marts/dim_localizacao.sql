@@ -1,10 +1,10 @@
 WITH localizacao AS (
-    SELECT * FROM {{ ref('int_vendas_localizacao') }}
+    SELECT * FROM {{ ref('int_localizacao') }}
 )
 
 SELECT 
-    localizacao.id_pedido,
-    localizacao.id_regiao,
-    localizacao.regiao_vendas,
-    localizacao.pais
+    id_endereco,
+    cidade,
+    estado,
+    pais
 FROM localizacao

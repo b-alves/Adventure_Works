@@ -1,8 +1,8 @@
 WITH pagamento AS (
-    SELECT * FROM {{ ref('int_vendas_pagamento') }}
+    SELECT * FROM {{ ref('int_pagamento') }}
 )
 
 SELECT 
-    pagamento.id_pedido,
-    pagamento.tipo_pagamento
+    id_pedido,
+    tipo_cartao
 FROM pagamento

@@ -1,8 +1,8 @@
-WITH cliente AS (
+WITH clientes AS (
     SELECT * FROM {{ ref('int_clientes') }}
 )
 
 SELECT 
-    cliente.id_cliente,
-    cliente.nome_cliente
-FROM cliente
+    id_cliente,
+    nome_cliente
+FROM clientes

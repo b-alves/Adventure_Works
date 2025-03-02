@@ -1,11 +1,11 @@
 version: 2
 
 models:
-  - name: dim_localizacao
-    description: "Dimensão de localização contendo informações geográficas."
+  - name: int_localizacao
+    description: "Tabela intermediária que une dados de endereços, estados e países."
     columns:
       - name: id_endereco
-        description: "Chave primária da dimensão de localização."
+        description: "Chave primária do endereço."
         tests:
           - unique
           - not_null

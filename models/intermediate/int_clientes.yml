@@ -1,11 +1,11 @@
 version: 2
 
 models:
-  - name: dim_clientes
-    description: "Dimensão de clientes contendo nome e identificador."
+  - name: int_clientes
+    description: "Tabela intermediária que une dados de clientes e nomes de pessoas."
     columns:
       - name: id_cliente
-        description: "Chave primária da dimensão de clientes."
+        description: "Chave primária do cliente."
         tests:
           - unique
           - not_null

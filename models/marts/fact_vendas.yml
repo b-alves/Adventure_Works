@@ -2,32 +2,35 @@ version: 2
 
 models:
   - name: fact_vendas
-    description: "Tabela fato consolidada das vendas, refletindo a camada intermediária de métricas e mantendo relacionamento direto com as dimensões no Power BI via salesorderid."
+    description: "Tabela fato contendo as métricas de vendas, com base na intermediate."
     columns:
-      - name: salesorderid
-        description: "Identificador único do pedido, usado como chave para relacionamentos no Power BI."
+      - name: id_pedido
+        description: "Identificador único do pedido."
         tests:
           - unique
           - not_null
-      - name: customerid
+
+      - name: id_cliente
         description: "Chave estrangeira para a dimensão de clientes."
         tests:
           - not_null
-      - name: orderdate
+
+      - name: data_pedido
         description: "Data em que o pedido foi realizado."
-      - name: productid
-        description: "Chave estrangeira para a dimensão de produtos."
         tests:
           - not_null
-      - name: orderqty
-        description: "Quantidade total de unidades vendidas no pedido."
-      - name: unitprice
-        description: "Preço unitário do produto."
-      - name: unitpricediscount
-        description: "Desconto aplicado por unidade do produto."
+
       - name: valor_bruto
-        description: "Valor total da venda antes de aplicar descontos."
+        description: "Valor total bruto do pedido, sem descontos aplicados."
+
       - name: valor_liquido
-        description: "Valor final da venda após aplicar descontos."
-      - name: ticket_medio
-        description: "Média de valor gasto por unidade comprada no pedido."
+        description: "Valor total líquido do pedido, considerando descontos aplicados."
+
+      - name: quantidade
+        description: "Quantidade de itens vendidos no pedido."
+
+      - name: produtos_distintos
+        description: "Número de produtos únicos no pedido."
+
+      - name: teve_desconto
+        description: "Indica se o pedido teve desconto."

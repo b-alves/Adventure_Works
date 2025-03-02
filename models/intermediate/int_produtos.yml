@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: int_produtos
+    description: "Tabela intermediária que une produtos, subcategorias e categorias."
+    columns:
+      - name: id_produto
+        description: "Chave primária do produto."
+        tests:
+          - unique
+          - not_null
+
+      - name: nome_produto
+        description: "Nome do produto."
+
+      - name: subcategoria
+        description: "Nome da subcategoria do produto."
+
+      - name: categoria
+        description: "Nome da categoria do produto."
