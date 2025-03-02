@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: dim_clientes
+    description: "Dimensão de clientes."
+    columns:
+      - name: customerid
+        description: "Chave primária do cliente."
+      - name: nome_completo
+        description: "Nome do cliente."
+      - name: cidade
+        description: "Cidade do cliente."
+      - name: estado
+        description: "Estado do cliente."
+      - name: pais
+        description: "País do cliente."

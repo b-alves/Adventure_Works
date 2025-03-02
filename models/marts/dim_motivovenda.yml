@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: dim_motivovenda
+    description: "Dimensão de motivos de venda."
+    columns:
+      - name: id_motivo_venda
+        description: "Chave primária do motivo de venda."
+      - name: motivo_venda
+        description: "Nome do motivo da venda."

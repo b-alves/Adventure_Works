@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: int_vendas_localizacao
+    description: "Relaciona vendas com localização (cidade, estado e país)."
+    columns:
+      - name: salesorderid
+        description: "Identificador único do pedido."
+        tests:
+          - not_null
+      - name: cidade
+        description: "Cidade onde ocorreu a venda."
+      - name: estado
+        description: "Estado onde ocorreu a venda."
+      - name: pais
+        description: "País onde ocorreu a venda."

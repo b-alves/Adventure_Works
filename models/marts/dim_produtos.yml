@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: dim_produtos
+    description: "Dimensão de produtos."
+    columns:
+      - name: productid
+        description: "Chave primária do produto."
+      - name: nome_produto
+        description: "Nome do produto."
+      - name: subcategoria
+        description: "Subcategoria do produto."
+      - name: categoria
+        description: "Categoria do produto."

@@ -26,6 +26,7 @@ models:
       +schema: int
 
     marts:
+      +enabled: true
       +materialized: table
       +schema: marts
 

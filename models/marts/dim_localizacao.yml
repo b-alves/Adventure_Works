@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: dim_localizacao
+    description: "Dimensão de localização das vendas."
+    columns:
+      - name: regiao_vendas
+        description: "Região de vendas onde ocorreu a transação."
+      - name: pais
+        description: "País onde ocorreu a venda."

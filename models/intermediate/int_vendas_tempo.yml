@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: int_vendas_tempo
+    description: "Dimensão de tempo para análise de vendas por ano, mês e dia."
+    columns:
+      - name: salesorderid
+        description: "Identificador único do pedido."
+        tests:
+          - not_null
+      - name: ano
+        description: "Ano da venda."
+      - name: mes
+        description: "Mês da venda."
+      - name: dia
+        description: "Dia da venda."
+      - name: dia_semana
+        description: "Dia da semana da venda."

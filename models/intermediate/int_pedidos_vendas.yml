@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: int_metricas_vendas
+    description: "Tabela intermediária que consolida as métricas de vendas, unindo informações de pedidos e itens vendidos."
+    columns:
+      - name: salesorderid
+        description: "Identificador único do pedido, usado para os relacionamentos."
+        tests:
+          - not_null
+      - name: customerid
+        description: "Identificador do cliente associado ao pedido."
+        tests:
+          - not_null
+      - name: orderdate
+        description: "Data do pedido."
+      - name: productid
+        description: "Chave estrangeira para a tabela de produtos."
+        tests:
+          - not_null
+      - name: orderqty
+        description: "Quantidade de unidades vendidas no pedido."
+      - name: unitprice
+        description: "Preço unitário do produto."
+      - name: unitpricediscount
+        description: "Desconto aplicado por unidade do produto."
+      - name: valor_bruto
+        description: "Valor total da venda antes de aplicar descontos."
+      - name: valor_liquido
+        description: "Valor final da venda após aplicar descontos."
+      - name: ticket_medio
+        description: "Média de valor gasto por unidade comprada no pedido."

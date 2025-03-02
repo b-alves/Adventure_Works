@@ -138,6 +138,20 @@ sources:
           - name: name
             description: "Nome do país."
 
+      - name: salesorderheadersalesreason
+        description: "Relaciona pedidos de venda com motivos de venda."
+        columns:
+          - name: salesorderid
+            description: "Chave estrangeira para a tabela salesorderheader."
+            tests:
+              - not_null
+          - name: salesreasonid
+            description: "Chave estrangeira para a tabela salesreason."
+            tests:
+              - not_null
+          - name: modifieddate
+            description: "Data da última modificação."
+
       - name: salesreason
         description: "Motivos de venda registrados nas transações."
         columns:

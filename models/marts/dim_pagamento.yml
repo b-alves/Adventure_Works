@@ -1,0 +1,8 @@
+version: 2
+
+models:
+  - name: dim_pagamento
+    description: "Dimensão de formas de pagamento."
+    columns:
+      - name: tipo_pagamento
+        description: "Tipo de pagamento utilizado na compra."

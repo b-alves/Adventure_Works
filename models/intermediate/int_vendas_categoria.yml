@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: int_vendas_categoria
+    description: "Relaciona produtos com suas respectivas categorias e subcategorias."
+    columns:
+      - name: salesorderid
+        description: "Identificador único do pedido."
+        tests:
+          - not_null
+      - name: productid
+        description: "ID do produto comprado."
+        tests:
+          - not_null
+      - name: categoria
+        description: "Nome da categoria do produto."
+      - name: subcategoria
+        description: "Nome da subcategoria do produto."

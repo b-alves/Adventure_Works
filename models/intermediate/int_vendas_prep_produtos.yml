@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: int_vendas_prep_produtos
+    description: "Relaciona produtos com suas categorias."
+    columns:
+      - name: productid
+        description: "Identificador único do produto."
+        tests:
+          - not_null
+          - unique
+      - name: nome_produto
+        description: "Nome do produto."
+      - name: subcategoria
+        description: "Subcategoria do produto."
+      - name: categoria
+        description: "Categoria do produto."

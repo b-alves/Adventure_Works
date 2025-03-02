@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: dim_tempo
+    description: "Dimensão de tempo para análise das vendas."
+    columns:
+      - name: data_pedido
+        description: "Data do pedido."
+      - name: ano
+        description: "Ano do pedido."
+      - name: mes
+        description: "Mês do pedido."
+      - name: dia
+        description: "Dia do pedido."
+      - name: dia_semana
+        description: "Dia da semana correspondente ao pedido."
